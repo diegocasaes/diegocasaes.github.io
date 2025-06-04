@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Casaes - Global Thought Leader</title>
+    <style>
+        /* Global styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --light-gray: #ecf0f1;
+            --dark-gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Japanese-inspired design elements */
+        .japanese-border {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        
+        .vertical-line {
+            position: fixed;
+            top: 0;
+            left: 50px;
+            width: 1px;
+            height: 100%;
+            background-color: var(--light-gray);
+            z-index: -1;
+        }
+        
+        /* Navigation */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 300;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .hero-content {
+            width: 60%;
+            padding-right: 50px;
+        }
+        
+        .hero-image {
+            width: 40%;
+            text-align: right;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 2px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+            max-width: 600px;
+        }
+        
+        /* Call to action buttons */
+        .cta-buttons {
+            display: flex;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Featured section */
+        .featured {
+            padding: 80px 0;
+            background-color: white;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .featured-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .featured-item {
+            width: 30%;
+            padding: 30px;
+            border-radius: 2px;
+            background-color: var(--background-color);
+        }
+        
+        .featured-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+            color: var(--primary-color);
+        }
+        
+        .featured-item p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .read-more:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        .read-more:hover:after {
+            width: 100%;
+        }
+        
+        /* Social links */
+        .social {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .social-links li {
+            margin: 0 15px;
+        }
+        
+        .social-links a {
+            color: var(--dark-gray);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                padding: 50px 0;
+            }
+            
+            .hero-content, .hero-image {
+                width: 100%;
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .hero-image {
+                margin-bottom: 40px;
+            }
+            
+            .hero-image img {
+                max-width: 250px;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .featured-content {
+                flex-direction: column;
+            }
+            
+            .featured-item {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .vertical-line {
+                display: none;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="vertical-line"></div>
+    
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">YOUR NAME</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="writing.html">Writing</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Global Perspectives for a Thriving Future</h1>
+                <p>International affairs expert with a focus on climate change, environmental protection, human collaboration, and multilateralism. Building bridges between the Global South and global institutions.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Collaborate With Me</a>
+                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/api/placeholder/400/500" alt="Your Name - Professional Photo">
+            </div>
+        </div>
+    </section>
+    
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="featured-content">
+                <div class="featured-item">
+                    <h3>Climate Diplomacy</h3>
+                    <p>Exploring new pathways for international cooperation on climate action that centers Global South perspectives and drives equitable solutions.</p>
+                    <a href="writing.html" class="read-more">Read More</a>
+                </div>
+                <div class="featured-item">
+                    <h3>Multilateral Innovation</h3>
+                    <p>Rethinking our global institutions for a more collaborative, inclusive and effective international system fit for 21st century challenges.</p>
+                    <a href="projects.html" class="read-more">Read More</a>
+                </div>
+                <div class="featured-item">
+                    <h3>Environmental Justice</h3>
+                    <p>Advocating for approaches to environmental protection that address historic inequities and create pathways for sustainable prosperity.</p>
+                    <a href="writing.html" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="social">
+        <div class="container">
+            <h2 class="section-title">Connect With Me</h2>
+            <ul class="social-links">
+                <li><a href="#"><i>Twitter</i></a></li>
+                <li><a href="#"><i>LinkedIn</i></a></li>
+                <li><a href="#"><i>Medium</i></a></li>
+                <li><a href="#"><i>Instagram</i></a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

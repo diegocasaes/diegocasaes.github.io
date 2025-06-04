@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing & Thought Leadership - Your Name</title>
+    <style>
+        /* Global styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --light-gray: #ecf0f1;
+            --dark-gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Japanese-inspired design elements */
+        .japanese-border {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        
+        .vertical-line {
+            position: fixed;
+            top: 0;
+            left: 50px;
+            width: 1px;
+            height: 100%;
+            background-color: var(--light-gray);
+            z-index: -1;
+        }
+        
+        /* Navigation */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 300;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Page header */
+        .page-header {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Filter */
+        .filter-section {
+            padding: 20px 0 40px;
+            text-align: center;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--dark-gray);
+            border-radius: 2px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* Articles */
+        .articles {
+            padding: 40px 0;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+        
+        .article-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+            color: var(--primary-color);
+        }
+        
+        .article-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .article-date {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            position: relative;
+            margin-top: 15px;
+        }
+        
+        .read-more:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        .read-more:hover:after {
+            width: 100%;
+        }
+        
+        /* Featured article */
+        .featured-article {
+            margin-bottom: 60px;
+            background-color: white;
+            border-radius: 2px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .featured-article-container {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .featured-article-image {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .featured-article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-article-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .featured-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        
+        .featured-article-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+        
+        .featured-article-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 900px) {
+            .featured-article-container {
+                flex-direction: column;
+            }
+            
+            .featured-article-image {
+                height: 250px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vertical-line {
+                display: none;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="vertical-line"></div>
+    
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">YOUR NAME</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="writing.html">Writing</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Writing & Thought Leadership</h1>
+            <p>Exploring ideas at the intersection of international affairs, climate action, and collaborative governance with a Global South perspective.</p>
+        </div>
+    </section>
+    
+    <section class="filter-section">
+        <div class="container">
+            <p>Filter by topic:</p>
+            <div class="filter-buttons">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Climate Change</button>
+                <button class="filter-btn">International Affairs</button>
+                <button class="filter-btn">Environmental Justice</button>
+                <button class="filter-btn">Multilateralism</button>
+                <button class="filter-btn">Human Collaboration</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="articles">
+        <div class="container">
+            <div class="featured-article">
+                <div class="featured-article-container">
+                    <div class="featured-article-image">
+                        <img src="/api/placeholder/800/500" alt="Featured Article Image">
+                    </div>
+                    <div class="featured-article-content">
+                        <div class="featured-tag">Featured</div>
+                        <h2 class="featured-article-title">Reimagining Climate Diplomacy: A Global South Perspective</h2>
+                        <p class="featured-article-excerpt">As we approach critical climate negotiations, it's time to shift the paradigm of international climate cooperation. This piece explores how centering Global South voices can lead to more equitable and effective climate action.</p>
+                        <p class="article-date">March 15, 2025</p>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/300" alt="Article Image">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-tag">International Affairs</div>
+                        <h3 class="article-title">Beyond the Status Quo: Reforming Multilateral Institutions</h3>
+                        <p class="article-excerpt">The challenges of the 21st century demand new approaches to global governance. How can we transform our international institutions to be more inclusive and effective?</p>
+                        <p class="article-date">February 28, 2025</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/300" alt="Article Image">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-tag">Environmental Justice</div>
+                        <h3 class="article-title">Climate Finance: Addressing Historical Inequities</h3>
+                        <p class="article-excerpt">How can climate finance mechanisms be redesigned to acknowledge historical responsibility while creating pathways for sustainable development?</p>
+                        <p class="article-date">February 10, 2025</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/300" alt="Article Image">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-tag">Human Collaboration</div>
+                        <h3 class="article-title">Building Bridges: Cross-Sectoral Partnerships for Change</h3>
+                        <p class="article-excerpt">The most intractable global challenges require collaboration across sectors. This piece examines successful models for partnership between government, business, and civil society.</p>
+                        <p class="article-date">January 22, 2025</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/300" alt="Article Image">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-tag">Climate Change</div>
+                        <h3 class="article-title">Beyond Mitigation: A Holistic Approach to Climate Action</h3>
+                        <p class="article-excerpt">Climate strategies must integrate adaptation, loss and damage, and just transition considerations alongside emissions reduction efforts.</p>
+                        <p class="article-date">January 5, 2025</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/300" alt="Article Image">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-tag">Multilateralism</div>
+                        <h3 class="article-title">Rethinking Power: Inclusive Decision-Making in Global Forums</h3>
+                        <p class="article-excerpt">How can international decision-making processes be redesigned to ensure all voices are heard and respected? This piece offers a framework for more equitable global governance.</p>
+                        <p class="article-date">December 12, 2024</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/300" alt="Article Image">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-tag">International Affairs</div>
+                        <h3 class="article-title">The Future of Global Cooperation in a Multipolar World</h3>
+                        <p class="article-excerpt">As power dynamics shift globally, what principles should guide international cooperation to address shared challenges?</p>
+                        <p class="article-date">November 30, 2024</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
