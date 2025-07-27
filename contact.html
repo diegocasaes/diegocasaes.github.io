@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Diego Casaes</title>
+    <title>Contact - Your Name</title>
     <style>
         /* Global styles */
         :root {
@@ -135,19 +135,12 @@
         
         .contact-container {
             display: flex;
-            gap: 50px;
+            justify-content: center;
         }
         
         .contact-info {
-            flex: 1;
-        }
-        
-        .contact-form {
-            flex: 2;
-            background-color: white;
-            padding: 40px;
-            border-radius: 2px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            text-align: center;
         }
         
         .contact-heading {
@@ -164,12 +157,17 @@
         
         .contact-methods {
             margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .contact-method {
             margin-bottom: 20px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            max-width: 300px;
         }
         
         .contact-icon {
@@ -336,68 +334,39 @@
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info">
-                    <h2 class="contact-heading">Let's Start a Conversation</h2>
-                    <p class="contact-text">I'm always open to discussing new projects, opportunities for collaboration, speaking at events, or exploring ways to implement innovative ideas for a better future.</p>
-                    
+                         
                     <div class="contact-methods">
                         <div class="contact-method">
-                            <div class="contact-icon">E</div>
+                          
                             <div class="method-info">
                                 <h4>Email</h4>
-                                <p><a href="mailto:diegocasaes@gmail.com">diegocasaes@gmail.com</a></p>
+                                <p>hello@yourname.com</p>
                             </div>
                         </div>
                         
                         <div class="contact-method">
-                            <div class="contact-icon">L</div>
+                        
                             <div class="method-info">
                                 <h4>LinkedIn</h4>
-                                <p><a href="https://www.linkedin.com/in/diegocasaes/" target="_blank">linkedin.com/in/diegocasaes</a></p>
+                                <p>linkedin.com/in/yourname</p>
                             </div>
                         </div>
                         
                         <div class="contact-method">
-                            <div class="contact-icon">T</div>
+                    
                             <div class="method-info">
                                 <h4>Response Time</h4>
                                 <p>Usually within 48 hours</p>
+
                             </div>
                         </div>
                     </div>
                     
+                   
+                      
                     </div>
-                
-                <div class="contact-form">
-                    <h2 class="contact-heading">Send Me a Message</h2>
                     
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="inquiry">Inquiry Type</label>
-                            <select id="inquiry" name="inquiry">
-                                <option value="speaking">Speaking Engagement</option>
-                                <option value="collaboration">Collaboration Opportunity</option>
-                                <option value="funding">Funding Discussion</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                   
                 </div>
             </div>
         </div>
@@ -405,7 +374,7 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Diego Casaes. All rights reserved.</p>
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
         </div>
     </footer>
 </body>
